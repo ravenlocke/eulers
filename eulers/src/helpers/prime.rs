@@ -68,6 +68,21 @@ impl PrimeFactorisation {
             .map(|(k, v)| k.pow(*v as u32))
             .product()
     }
+
+    /// Calculate all divisors of a number.
+    pub fn divisors(&self) -> Vec<usize> {
+        let mut vec: Vec<usize> = vec![1];
+        for (k, v) in self.factorisation.iter() {
+            let mut next_vec = Vec::with_capacity(vec.len() * (v + 1));
+            for power in 0..*v + 1 {
+                next_vec.extend(vec.iter().map(|i| *i * k.pow(power as u32)));
+            }
+
+            vec = next_vec
+        }
+        vec.sort_unstable();
+        vec
+    }
 }
 
 /// Calculate all prime numbers ≤ `n` using the Sieve of Eratosthenes.
