@@ -24,7 +24,7 @@ pub fn solution() -> u64 {
 
     for i in TriangleNumberIter::default() {
         let factorisation = PrimeFactorisation::new(i)
-            .expect(&format!("could not generate prime factorisation for `{i}`"));
+            .unwrap_or_else(|| panic!("could not generate prime factorisation for `{i}`"));
         if factorisation.n_factors() > TARGET_N_FACTORS {
             return i as u64;
         }

@@ -1,9 +1,5 @@
 fn collatz(n: u64) -> u64 {
-    if n % 2 == 0 {
-        return n / 2;
-    } else {
-        return n * 3 + 1;
-    }
+    if n % 2 == 0 { n / 2 } else { n * 3 + 1 }
 }
 
 fn collatz_length(mut n: u64) -> usize {

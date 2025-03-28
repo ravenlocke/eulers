@@ -1,7 +1,11 @@
-use crate::helpers::fizzbuzz::FizzBuzzIter;
+const SOLUTION: u64 = crabtime::eval!(
+    (1u64..1_000)
+        .filter(|i| i % 3 == 0 || i % 5 == 0)
+        .sum::<u64>()
+);
 
 pub fn solution() -> u64 {
-    FizzBuzzIter::default().take_while(|i| *i < 1_000).sum()
+    SOLUTION
 }
 
 #[cfg(test)]

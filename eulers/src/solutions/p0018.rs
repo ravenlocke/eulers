@@ -20,7 +20,7 @@ pub fn solution() -> u64 {
         i.split_whitespace()
             .map(|j| {
                 j.parse::<u64>()
-                    .expect(&format!("could not parse `{i}` as u64"))
+                    .unwrap_or_else(|_| panic!("could not parse `{i}` as u64"))
             })
             .collect::<Vec<_>>()
     });

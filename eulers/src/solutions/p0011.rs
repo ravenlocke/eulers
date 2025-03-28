@@ -33,9 +33,9 @@ pub fn solution() -> u64 {
     let mut highest_product = 0u64;
 
     // L2R
-    for i in 0..20 {
+    for row in &grid {
         for j in 0..17 {
-            let prod = (0..4).map(|dj| grid[i][j + dj]).product::<u64>();
+            let prod = (0..4).map(|dj| row[j + dj]).product::<u64>();
             if prod > highest_product {
                 highest_product = prod
             }

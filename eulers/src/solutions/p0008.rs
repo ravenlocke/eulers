@@ -1,4 +1,4 @@
-use std::{collections::vec_deque::VecDeque, usize};
+use std::collections::vec_deque::VecDeque;
 
 const INPUTS: &str = "
 73167176531330624919225119674426574742355349194934

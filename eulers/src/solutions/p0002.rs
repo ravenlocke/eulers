@@ -1,11 +1,23 @@
-use crate::helpers::fibonacci::Fibonacci;
+// Solve during compilation for speed.
+const SOLUTION: u64 = crabtime::eval! {
+    let mut a = 0u64;
+    let mut b = 1;
+    let mut total = 0;
+
+    while a < 4_000_000 {
+        if a % 2 == 0 {
+            total += a
+        }
+
+        a += b;
+        std::mem::swap(&mut a, &mut b);
+    }
+
+    total
+};
 
 pub fn solution() -> u64 {
-    Fibonacci::default()
-        .skip(1)
-        .step_by(3)
-        .take_while(|i| *i < 4_000_000)
-        .sum()
+    SOLUTION
 }
 
 #[cfg(test)]

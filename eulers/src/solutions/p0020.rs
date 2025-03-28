@@ -2,7 +2,7 @@ use num_bigint::BigUint;
 
 pub fn solution() -> u64 {
     (2u64..100)
-        .map(|i| BigUint::from(i))
+        .map(BigUint::from)
         .product::<BigUint>()
         .to_str_radix(10)
         .bytes()

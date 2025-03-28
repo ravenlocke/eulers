@@ -61,9 +61,7 @@ pub fn number_to_string_length(n: u64) -> usize {
 
 pub fn solution() -> u64 {
     let mut length_acc = "onethousand".len();
-    length_acc += (1..1_000)
-        .map(|i| number_to_string_length(i))
-        .sum::<usize>();
+    length_acc += (1..1_000).map(number_to_string_length).sum::<usize>();
 
     length_acc as u64
 }

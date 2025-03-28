@@ -107,7 +107,7 @@ pub fn solution() -> u64 {
         .split('\n')
         .map(|i| {
             i.parse::<BigUint>()
-                .expect(&format!("could not parse `{i}` as a BigUint"))
+                .unwrap_or_else(|_| panic!("could not parse `{i}` as a BigUint"))
         })
         .sum::<BigUint>();
     x.to_str_radix(10)[0..10].parse().unwrap()

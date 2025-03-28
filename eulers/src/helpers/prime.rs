@@ -44,7 +44,7 @@ impl PrimeFactorisation {
             .for_each(|k| {
                 // We may see some keys twice if they are appear in both factorisations.
                 if factorisation.contains_key(k) {
-                    return ();
+                    return;
                 }
                 factorisation.insert(
                     *k,
