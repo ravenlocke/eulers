@@ -1,12 +1,19 @@
-use crate::helpers::prime::PrimeFactorisation;
+const SOLUTION: u64 = crabtime::eval! {
+    let mut n = 600_851_475_143;
+    let mut result: u64 = 1;
 
-const N: u64 = 600_851_475_143;
+    while n != 1 {
+        result += 2;
+        while n % result == 0 {
+            n /= result;
+        }
+    }
+
+    result
+};
 
 pub fn solution() -> u64 {
-    PrimeFactorisation::new(N as usize)
-        .unwrap_or_else(|| panic!("could not generate prime factorisation for `{N}`"))
-        .largest_prime_factor()
-        .unwrap_or_else(|| panic!("could not determine largest prime factor")) as u64
+    SOLUTION
 }
 
 #[cfg(test)]

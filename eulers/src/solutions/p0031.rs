@@ -1,7 +1,7 @@
 const COINS: [u64; 7] = [200, 100, 50, 20, 10, 5, 2];
 
 fn get_n_solutions(current: u64, coins: &[u64]) -> u64 {
-    if coins.len() == 0 {
+    if coins.is_empty() {
         return 1;
     }
 

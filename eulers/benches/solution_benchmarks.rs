@@ -11,7 +11,7 @@ macro_rules! add_benches {
                 c.bench_function(stringify!($name), |b| {
                     b.iter(|| $name::solution())
                 });
-            }        
+            }
         )*
     }
     };
